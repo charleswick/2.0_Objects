@@ -42,6 +42,9 @@ public class Astronaut {
         ypos = ypos + dy;
  
     }
+    public void wrap(){
+
+    }
 }
 
 
