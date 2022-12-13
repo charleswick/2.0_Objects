@@ -67,8 +67,10 @@ public class BasicGameApp implements Runnable {
 		astroPic = Toolkit.getDefaultToolkit().getImage("astronaut.png"); //load the picture
 		astro = new Astronaut(10,100);
 		jack = new Astronaut(300,40);
-		jack.dy = 1;
-		jack.dx = 0;
+		jack.dy = 4;
+		jack.dx = 4;
+		astro.dy = 4;
+		astro.dx = 4;
 
 
 
@@ -97,8 +99,10 @@ public class BasicGameApp implements Runnable {
 	public void moveThings()
 	{
       //calls the move( ) code in the objects
-		astro.move();
-		jack.move();
+//		astro.move();
+//		jack.move();
+		astro.bounce();
+		jack.bounce();
 
 	}
 	

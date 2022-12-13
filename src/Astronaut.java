@@ -43,7 +43,25 @@ public class Astronaut {
  
     }
     public void wrap(){
+        xpos = xpos + dx;
+        ypos = ypos + dy;
+        if (xpos > 1000){
+            xpos = 0;}
+        if  (ypos > 700){
+            ypos = 0;}
 
+        }
+    public void bounce(){
+        xpos = xpos + dx;
+        ypos = ypos + dy;
+        if  (ypos > 500){
+            dy = -dy;}
+        if  (ypos < 1){
+            dy = -dy;}
+        if  (xpos > 999){
+            dx = -dx;}
+        if  (ypos < 1){
+            dx = -dx;}
     }
 }
 
