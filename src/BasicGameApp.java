@@ -39,12 +39,16 @@ public class BasicGameApp implements Runnable {
    
 	public BufferStrategy bufferStrategy;
 	public Image astroPic;
+	public Image background;
+
+	public Image bear;
 
    //Declare the objects used in the program
    //These are things that are made up of more than one variable type
 	private Astronaut astro;
 	private Astronaut jack;
 
+	private Astronaut ryan;
 
    // Main method definition
    // This is the code that runs first and automatically
@@ -63,14 +67,20 @@ public class BasicGameApp implements Runnable {
       setUpGraphics();
        
       //variable and objects
-      //create (construct) the objects needed for the game and load up 
+      //create (construct) the objects needed for the game and load up
 		astroPic = Toolkit.getDefaultToolkit().getImage("astronaut.png"); //load the picture
+		background = Toolkit.getDefaultToolkit().getImage("mj.jpeg"); //load the picture
+		bear = Toolkit.getDefaultToolkit().getImage("bearpic.jpg"); //load the picture
+
 		astro = new Astronaut(10,100);
 		jack = new Astronaut(300,40);
-		jack.dy = 4;
+		ryan = new Astronaut(350,100);
+		jack.dy = 0;
 		jack.dx = 4;
 		astro.dy = 4;
 		astro.dx = 4;
+		ryan.dx = 2;
+		ryan.dy = 2;
 
 
 
@@ -103,6 +113,10 @@ public class BasicGameApp implements Runnable {
 //		jack.move();
 		astro.bounce();
 		jack.bounce();
+		ryan.bounce();
+		crash();
+
+
 
 	}
 	
@@ -145,6 +159,20 @@ public class BasicGameApp implements Runnable {
       System.out.println("DONE graphic setup");
    
    }
+	public void crash(){
+
+		if(jack.rec.intersects(astro.rec)){
+
+			System.out.println("crash");
+			jack.dx = -1*jack.dx;
+			jack.dy = -1* jack.dy;
+			astro.dx = -1*astro.dx;
+			astro.dy = -1* astro.dy;
+
+		}
+
+	}
+
 
 
 	//paints things on the screen using bufferStrategy
@@ -153,8 +181,16 @@ public class BasicGameApp implements Runnable {
 		g.clearRect(0, 0, WIDTH, HEIGHT);
 
       //draw the image of the astronaut
+		g.drawImage(background,0,0,1000,700,null);
 		g.drawImage(astroPic, astro.xpos, astro.ypos, astro.width, astro.height, null);
 		g.drawImage(astroPic, jack.xpos, jack.ypos, jack.width, jack.height, null);
+		g.drawImage(bear, ryan.xpos, ryan.ypos, astro.width, astro.height, null);
+
+
+
+		g.draw(new Rectangle(astro.xpos,astro.ypos,astro.width,astro.height));
+		g.draw(new Rectangle(jack.xpos,jack.ypos,jack.width,jack.height));
+		g.draw(new Rectangle(ryan.xpos,ryan.ypos,ryan.width,ryan.height));
 
 
 		g.dispose();
