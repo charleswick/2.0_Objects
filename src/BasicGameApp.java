@@ -75,11 +75,11 @@ public class BasicGameApp implements Runnable {
 		astro = new Astronaut(10,100);
 		jack = new Astronaut(300,40);
 		ryan = new Astronaut(350,100);
-		jack.dy = 0;
-		jack.dx = 4;
+		jack.dy = 5;
+		jack.dx = 7;
 		astro.dy = 4;
 		astro.dx = 4;
-		ryan.dx = 2;
+		ryan.dx = 8;
 		ryan.dy = 2;
 
 
@@ -168,6 +168,26 @@ public class BasicGameApp implements Runnable {
 			jack.dy = -1* jack.dy;
 			astro.dx = -1*astro.dx;
 			astro.dy = -1* astro.dy;
+
+		}
+		if(ryan.rec.intersects(astro.rec)){
+
+			System.out.println("crash");
+			ryan.dx = -1*ryan.dx;
+			ryan.dy = -1* ryan.dy;
+			astro.dx = -1*astro.dx;
+			astro.dy = -1* astro.dy;
+
+		}
+		if(ryan.rec.intersects(jack.rec)){
+
+			System.out.println("crash");
+			ryan.dx = -1*ryan.dx;
+			ryan.dy = -1* ryan.dy;
+			jack.dx = -1*jack.dx;
+			jack.dy = -1* jack.dy;
+			jack.width = jack.width + 20;
+			jack.height = jack.height + 20;
 
 		}
 
