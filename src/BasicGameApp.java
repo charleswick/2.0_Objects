@@ -168,6 +168,7 @@ public class BasicGameApp implements Runnable {
 			jack.dy = -1* jack.dy;
 			astro.dx = -1*astro.dx;
 			astro.dy = -1* astro.dy;
+			jack.isAlive = false;
 
 		}
 		if(ryan.rec.intersects(astro.rec)){
@@ -177,6 +178,7 @@ public class BasicGameApp implements Runnable {
 			ryan.dy = -1* ryan.dy;
 			astro.dx = -1*astro.dx;
 			astro.dy = -1* astro.dy;
+			ryan.isAlive = false;
 
 		}
 		if(ryan.rec.intersects(jack.rec)){
@@ -186,8 +188,7 @@ public class BasicGameApp implements Runnable {
 			ryan.dy = -1* ryan.dy;
 			jack.dx = -1*jack.dx;
 			jack.dy = -1* jack.dy;
-			jack.width = jack.width + 20;
-			jack.height = jack.height + 20;
+			ryan.isAlive = false;
 
 		}
 
