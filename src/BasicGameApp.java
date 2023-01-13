@@ -188,7 +188,7 @@ public class BasicGameApp implements Runnable {
 			ryan.dy = -1* ryan.dy;
 			jack.dx = -1*jack.dx;
 			jack.dy = -1* jack.dy;
-			ryan.isAlive = false;
+			jack.isAlive = false;
 
 		}
 
@@ -204,13 +204,18 @@ public class BasicGameApp implements Runnable {
       //draw the image of the astronaut
 		g.drawImage(background,0,0,1000,700,null);
 		g.drawImage(astroPic, astro.xpos, astro.ypos, astro.width, astro.height, null);
-		g.drawImage(astroPic, jack.xpos, jack.ypos, jack.width, jack.height, null);
+		if (jack.isAlive == true) {
+			g.drawImage(astroPic, jack.xpos, jack.ypos, jack.width, jack.height, null);
+			g.draw(new Rectangle(jack.xpos,jack.ypos,jack.width,jack.height));
+
+		}
+
+
 		g.drawImage(bear, ryan.xpos, ryan.ypos, astro.width, astro.height, null);
 
 
 
 		g.draw(new Rectangle(astro.xpos,astro.ypos,astro.width,astro.height));
-		g.draw(new Rectangle(jack.xpos,jack.ypos,jack.width,jack.height));
 		g.draw(new Rectangle(ryan.xpos,ryan.ypos,ryan.width,ryan.height));
 
 
